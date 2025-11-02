@@ -17,4 +17,3 @@ public record LottoResultDto(String description, int prize, int count) {
                 .toList();
     }
 }
-
