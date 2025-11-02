@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 
 public class LottoMachine {
 
+    private static final int START_INDEX = 0;
     private final LottoNumberGenerator generator;
 
     public LottoMachine(LottoNumberGenerator generator) {
@@ -17,7 +18,7 @@ public class LottoMachine {
     public Lottos buyAutoLottos(int money) {
         int count = money / LottoConstants.LOTTO_TICKET_PRICE;
 
-        List<Lotto> lottoList = IntStream.range(0, count)
+        List<Lotto> lottoList = IntStream.range(START_INDEX, count)
                 .mapToObj(i -> createSortedLotto())
                 .toList();
 
