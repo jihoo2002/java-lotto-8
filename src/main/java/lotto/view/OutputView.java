@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class OutputView {
+
     private static final DecimalFormat MONEY_FORMAT = new DecimalFormat("#,###");
 
     private static final String PURCHASED_COUNT = "%d개를 구매했습니다.";
