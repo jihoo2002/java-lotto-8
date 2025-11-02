@@ -5,6 +5,8 @@ import lotto.util.LottoConstants;
 
 public class AmountParser {
 
+    private static final int ZERO = 0;
+
     public static int validate(String input) {
         int amount = parsePurchaseAmount(input);
         validatePurchaseAmount(amount);
@@ -21,11 +23,11 @@ public class AmountParser {
     }
 
     private static void validatePurchaseAmount(int purchaseAmount) {
-        if (purchaseAmount <= 0) {
+        if (purchaseAmount <= ZERO) {
             throw new IllegalArgumentException(ErrorMessage.PURCHASE_AMOUNT_NOT_POSITIVE.error());
         }
 
-        if (purchaseAmount % LottoConstants.LOTTO_TICKET_PRICE != 0) {
+        if (purchaseAmount % LottoConstants.LOTTO_TICKET_PRICE != ZERO) {
             throw new IllegalArgumentException(ErrorMessage.PURCHASE_AMOUNT_INVALID_UNIT.error());
         }
     }
