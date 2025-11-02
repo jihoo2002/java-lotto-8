@@ -16,12 +16,7 @@ public class LottoResult {
 
     public LottoResult(WinningNumbers winningNumbers) {
         this.winningNumbers = winningNumbers;
-
-        for (LottoRank rank : LottoRank.values()) {
-            if (rank != LottoRank.NO_WINNER) {
-                rankCount.put(rank, INITIAL_RANK_COUNT);
-            }
-        }
+        initializeRankCount();
     }
 
     public void calculate(Lottos lottos) {
@@ -42,6 +37,14 @@ public class LottoResult {
 
         double profitRate = totalPrize * PERCENTAGE_MULTIPLIER / totalPurchaseAmount;
         return roundToTwoDecimal(profitRate);
+    }
+
+    private void initializeRankCount() {
+        for (LottoRank rank : LottoRank.values()) {
+            if (rank != LottoRank.NO_WINNER) {
+                rankCount.put(rank, INITIAL_RANK_COUNT);
+            }
+        }
     }
 
     private double roundToTwoDecimal(double value) {
