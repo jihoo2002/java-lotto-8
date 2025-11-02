@@ -8,6 +8,7 @@ public class AmountParser {
     public static int validate(String input) {
         int amount = parsePurchaseAmount(input);
         validatePurchaseAmount(amount);
+
         return amount;
     }
 
@@ -23,6 +24,7 @@ public class AmountParser {
         if (purchaseAmount <= 0) {
             throw new IllegalArgumentException(ErrorMessage.PURCHASE_AMOUNT_NOT_POSITIVE.error());
         }
+
         if (purchaseAmount % LottoConstants.LOTTO_TICKET_PRICE != 0) {
             throw new IllegalArgumentException(ErrorMessage.PURCHASE_AMOUNT_INVALID_UNIT.error());
         }
