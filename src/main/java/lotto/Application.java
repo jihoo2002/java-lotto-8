@@ -9,7 +9,7 @@ public class Application {
         try {
             LottoController lottoController = new LottoController();
             lottoController.lottoGame();
-        } catch (Exception e) {
+        } finally {
             Console.close();
         }
     }
